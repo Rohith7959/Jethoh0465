@@ -9,7 +9,7 @@ import threading
 import concurrent
 
 BOT_OWNER_ROLE = 'fetch' # change to what you need
-#BOT_OWNER_ROLE_ID = "544387608378343446"
+#BOT_OWNER_ROLE_ID = "524427711180177418"
   
  
 
@@ -311,7 +311,7 @@ def bot_with_cyclic_update_process(update_event, answer_scores):
     upd_thread.start()
 
     loop = asyncio.get_event_loop()
-    loop.create_task(bot.start('NTY4ODE1NzUyNDIxOTY1ODM0.XR2f-g.Q5J1Chc0TTfBGvoDprZAHk9nFnw'))
+    loop.create_task(bot.start('NjI4OTA4MjkyODEwNDczNDky.XZSCog.45-5-yFyp_psCWvKf-5nrHN1jIo'))
     loop.run_forever()
 
 
@@ -320,7 +320,7 @@ def selfbot_process(update_event, answer_scores):
     selfbot = SelfBot(update_event, answer_scores)
 
     loop = asyncio.get_event_loop()
-    loop.create_task(selfbot.start('NTk1NTA3NzcwMjA0MDk0NDY0.XRr__g.th80sLEAtBfowEHS6tb54YBCFDE',
+    loop.create_task(selfbot.start('NjI4OTA4MjkyODEwNDczNDky.XZSCog.45-5-yFyp_psCWvKf-5nrHN1jIo',
                                    bot=False))
     loop.run_forever()
 
