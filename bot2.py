@@ -8,67 +8,38 @@ import multiprocessing
 import threading
 import concurrent
 
-BOT_OWNER_ROLE = 'fetch' # change to what you need
+BOT_OWNER_ROLE = 'Rohith' # change to what you need
 #BOT_OWNER_ROLE_ID = "524427711180177418"
   
  
 
  
 oot_channel_id_list = [
-    "586950278947799041", #loco indian trivia offfical
-	"586439888610656287", #loco google trivia
-    "570155872861290519", #loco sudy iq
-    "586558799737913347", #lloco galxy 
-	"586562674477760512", #bb galaxy
-	"586461741953712128",# google trivia bb
-	"587984118059499560", #bb  indian trivia offfical
-	"586830578653855744",#bb pp indian trivia offfical
-	"586476852999225355",# google trivia bb pp
-  "570148250427064320", #bb study iq
-  "570257859850272788",#bb pp study iq
-	"523359669280833536", #hq tgl 
-  "580198028950896640", #hq trivia tribe
-	"523359846297239575", #the q tgl
-  "446448458090545172",#the q trivia tribe
-  "523359734406053889", #tgl conffit-us
-  "580205125281251328", #trivia tribe conffit
-  "588218983317110795",#con india indian trivia offfical
-  "556885929911124008", #tgl cashquizlive
-	"585618493093969923", # swag iq tgl
-	"446448437119025154", #sawg iq tgl
-    "558136902885048329",
-    "588739972354408532",
-    "588325679108456468",
-    "570257859850272788",
-    "588325025040564225",
-    "588748255106433045",
-	"587984504564482054",
-	"587984118059499560",
-	"586830578653855744",
-	"588739972354408532",
-	"587984347496185866",
-    "588325341563715589",
-	"590182635653824542",
-	"590182835948879872",
-	"590224806256050196",
-	"590228259937976321",
-	"590074352607690762",
-	"590074693097095168",
-	"590109407950667776",
-	"590074894738259979",
-	"591079879982841856",
-	"591067917123190804",
-	"591186950057361409",
-	"590926548174110730",
-"590583414541910018"
-	"593460363349983233",
-	"593070663548403743",
-	"593990638329004032",
-	"595654063870181386",#test channel (zlex)
-	"595636121124208640"
+    "626320837120753684", #confetti Mexico galaxy
+    "620842231229841421", #loco galaxy
+    "626769223846461470", #confetti India galaxy
+    "620842232098062339", #jeetoh galaxy
+    "620471823787622420", #confetti India study iq
+    "626458458064945164", #loco study iq
+    "620471737515245578", #jeetoh study iq
+    "628290139495464990", #loco United Kingdom
+    "628290342835322890", #jeetoh United Kingdom
+    "628291366115475486", #flipkart United Kingdom
+    "606130408018542633", #flipkat Trivia fire
+    "595635734904307742", #loco Trivia fire
+    "595636121124208640", #jeetoh Trivia fire
+    "605443517069656084", #confetti India Trivia fire
+    "599991033547325459", #topiq Vietnam Trivia pride
+    "611919358863605760", #mocha Vietnam Trivia pride
+    "626382041176342538", #te-media Trivia pride
+    "628934404386848778", #confetti Mexico Trivia pride
+    "618153590929752095", #le-quiz Mexico Trivia pride
+    "556885929911124008", #tgl cashquizlive
+    "585618493093969923", # swag iq tgl
+    "446448437119025154", #sawg iq tgl
+    "523359846297239575", #the q tgl
+    "446448458090545172", #the q trivia tribe
 ]
-
-
 answer_pattern = re.compile(r'(not|n)?([1-4]{1})(\?)?(cnf)?(\?)?$', re.IGNORECASE)
 
 apgscore = 500
@@ -259,7 +230,7 @@ class Bot(discord.Client):
 
         await self.clear_results()
         await self.update_embeds()
-        await self.change_presence(activity=discord.Game(name='Trivia by zlex|*help'))
+        await self.change_presence(activity=discord.Game(name='Trivia by Rohith|+help'))
 
     async def on_message(self, message):
 
@@ -267,7 +238,7 @@ class Bot(discord.Client):
         if message.author == self.user or message.guild == None:
             return
 
-        if message.content.lower() == "*j":
+        if message.content.lower() == "+j":
             await message.delete()
             if BOT_OWNER_ROLE in [role.name for role in message.author.roles]:
                 self.embed_msg = None
@@ -280,11 +251,11 @@ class Bot(discord.Client):
                 await message.channel.send("**Lol** You Not Have permission To Use This **cmd!** :stuck_out_tongue_winking_eye:")
             return
 
-        if message.content.startswith('***help'):
+        if message.content.startswith('+help'):
           if BOT_OWNER_ROLE in [role.name for role in message.author.roles]:
-           embed = discord.Embed(title="Help Commands", description="**How Run Bot**", color=0x00ff00)
-           embed.add_field(name="Support Game", value="**Loco\nBrainbaazi\nPollbaazi\nSwag-iq\nThe-Q\nConfett-India\nCash-Quiz-Live\nHQ Tivia\n\nJeetoh Answer For `*j`**", inline=False)
-           embed.add_field(name="when Question come put command", value="** * is command work for all support game**", inline=False)
+           embed = discord.Embed(title="Help Commands", description="**How to Run Bot**", color=0x00ff00)
+           embed.add_field(name="Support Game", value="**Loco\nBrainbaazi\nPollbaazi\nSwag-iq\nThe-Q\nConfett-India\nCash-Quiz-Live\nHQ\nconfetti Mexico\nte-media\nmocha Vietnam\nconfetti Vietnam\nmomo Vietnam Tivia\n\nJeetoh Answer For `+j`**", inline=False)
+           embed.add_field(name="when Question come put command", value="** + is command work for all support game**", inline=False)
            await message.channel.send(embed=embed)
 
         # process votes
